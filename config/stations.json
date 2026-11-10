@@ -1,0 +1,50 @@
+{
+  "stations": [
+    {
+      "id": "s7k2m9",
+      "name": "Example Radio",
+      "enabled": true,
+      "stream_url": "https://upstream.example.com/live.mp3",
+      "fallback_stream_urls": [
+        "https://mirror.example.com/live.mp3"
+      ],
+      "codec": "mp3",
+      "bitrate_kbps": 128,
+      "cover": "covers/s7k2m9.jpg",
+      "metadata": {
+        "type": "icy",
+        "url": null,
+        "poll_interval_seconds": 15,
+        "cache_ttl_seconds": 45
+      },
+      "upstream_headers": {
+        "User-Agent": "PrivateRadioProxy/1.0"
+      },
+      "notes": "Owner only. Replace stream_url with a real Icecast/Shoutcast URL."
+    },
+    {
+      "id": "sjson42",
+      "name": "Example JSON-Metadata Radio",
+      "enabled": false,
+      "stream_url": "https://upstream2.example.com/live.aac",
+      "fallback_stream_urls": [],
+      "codec": "aac",
+      "bitrate_kbps": 96,
+      "cover": "covers/sjson42.webp",
+      "metadata": {
+        "type": "json",
+        "url": "https://upstream2.example.com/nowplaying.json",
+        "title_path": "current.song.title",
+        "artist_path": "current.song.artist",
+        "cover_path": null,
+        "poll_interval_seconds": 15,
+        "cache_ttl_seconds": 30,
+        "background_poll": false
+      },
+      "upstream_headers": {
+        "User-Agent": "PrivateRadioProxy/1.0"
+      },
+      "notes": "Disabled example showing JSON metadata field mapping."
+    }
+  ]
+}

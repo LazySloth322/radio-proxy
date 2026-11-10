@@ -1,0 +1,47 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 54391,
+    "secret_path": "/x9k2m-p7qz4-v8n1r-t3w6/",
+    "public_base_url": "http://<server-ip>:54391"
+  },
+  "security": {
+    "token_cookie_name": "rp_session",
+    "cookie_secure": false,
+    "cookie_httponly": true,
+    "cookie_samesite": "Lax",
+    "max_failed_token_attempts_per_ip_per_minute": 20,
+    "allow_private_upstreams": false,
+    "trust_proxy_headers": false
+  },
+  "limits": {
+    "max_concurrent_streams_per_ip": 3,
+    "max_concurrent_streams_per_station": 5,
+    "max_concurrent_streams_global": 10,
+    "max_requests_per_ip_per_minute": 240,
+    "stream_chunk_size_bytes": 16384,
+    "upstream_connect_timeout_seconds": 10,
+    "upstream_read_timeout_seconds": 30,
+    "upstream_retry_attempts": 4,
+    "upstream_backoff_base_seconds": 1.0,
+    "upstream_backoff_max_seconds": 15.0,
+    "initial_connect_deadline_seconds": 20,
+    "max_stream_reconnects": 5,
+    "client_write_timeout_seconds": 30,
+    "metadata_poll_timeout_seconds": 10,
+    "metadata_max_bytes": 262144
+  },
+  "paths": {
+    "static_dir": "static",
+    "covers_dir": "covers",
+    "logs_dir": "logs"
+  },
+  "player": {
+    "history_limit": 30,
+    "history_visible_items": 15
+  },
+  "logging": {
+    "level": "INFO",
+    "mask_tokens": true
+  }
+}

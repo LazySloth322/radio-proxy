@@ -1,0 +1,5 @@
+# Runtime dependencies - intentionally minimal.
+aiohttp>=3.9,<4
+
+# Tests use the Python standard library (unittest) plus aiohttp's own test
+# utilities, so no additional packages are required.

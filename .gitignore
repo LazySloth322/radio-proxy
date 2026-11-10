@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+logs/
+*.log
+config/tokens.json
+covers/*
+!covers/.gitkeep
+.DS_Store

@@ -1,0 +1,48 @@
+[Unit]
+Description=Private radio stream proxy (personal, non-commercial)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=radioproxy
+Group=radioproxy
+WorkingDirectory=/opt/radio-proxy
+ExecStart=/opt/radio-proxy/.venv/bin/python3 -m private_radio_proxy
+
+# --- restart policy ---
+Restart=on-failure
+RestartSec=5s
+
+# --- resource limits (256 MB total free RAM; app idles around 40-70 MB) ---
+MemoryHigh=140M
+MemoryMax=180M
+CPUQuota=60%
+Nice=5
+TasksMax=64
+
+# --- hardening ---
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/radio-proxy/config /opt/radio-proxy/logs /opt/radio-proxy/covers
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+RemoveIPC=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallArchitectures=native
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

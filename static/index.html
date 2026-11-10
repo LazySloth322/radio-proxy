@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Private Radio</title>
+  <link rel="icon" href="assets/fallback-cover.svg">
+  <script src="assets/theme.js"></script>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Private Radio</h1>
+    <span id="conn-status" class="conn" title="last refresh">&nbsp;</span>
+    <button id="theme-toggle" class="theme-toggle" type="button"
+            aria-label="Switch color theme" title="Switch light/dark theme">&#9789;</button>
+  </header>
+
+  <main>
+    <div id="error-banner" class="banner hidden" role="alert"></div>
+    <section id="stations" class="grid" aria-live="polite"></section>
+  </main>
+
+  <footer>
+    <p>Private personal project. All radio streams, trademarks, artwork, and
+       content belong to their respective owners. No monetization. Access is
+       intended for personal use only.</p>
+  </footer>
+
+  <div id="player" class="player" role="region" aria-label="Player">
+    <button id="history-toggle" class="btn-history" type="button"
+            aria-expanded="false" aria-controls="history-panel"
+            aria-label="Recent tracks" title="Recent tracks (this session)">
+      <svg viewBox="0 0 12 8" aria-hidden="true">
+        <path d="M1 6.6 6 1.4l5 5.2" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <ol id="history-panel" class="history-panel hidden"
+        aria-label="Tracks captured on this session"></ol>
+    <div class="player-info">
+      <p id="player-station" class="player-station">Nothing playing</p>
+      <p id="player-track" class="player-track">Pick a station to start listening</p>
+    </div>
+    <canvas id="spectrum" class="spectrum" aria-hidden="true"></canvas>
+    <div class="player-controls">
+      <button id="player-toggle" class="btn-player" type="button"
+              aria-label="Play" title="Play" disabled>&#9654;</button>
+      <span class="vol-icon" aria-hidden="true">&#128266;</span>
+      <input id="volume" class="volume" type="range" min="0" max="100"
+             value="80" step="1" aria-label="Volume">
+    </div>
+  </div>
+
+  <noscript><p class="noscript">JavaScript is required for playback.</p></noscript>
+  <script src="assets/app.js"></script>
+</body>
+</html>
